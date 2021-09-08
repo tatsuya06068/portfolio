@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import Menu from 'components/header'
-import Typography from '@material-ui/core/Typography'
+import Title from 'components/title'
 
 export const Skill = (): JSX.Element => (
     <div>
@@ -11,7 +11,10 @@ export const Skill = (): JSX.Element => (
         
         <main>
             <Menu />
-            <span>skill</span>
+
+            <Title title="Skill" />
+
+
         </main>
     </div>
 )
