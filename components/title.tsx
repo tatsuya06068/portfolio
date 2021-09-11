@@ -20,10 +20,12 @@ const title : React.FC<{title:string}>= (prop) => {
 
     return(
         <div className={classes.title}>
-            <Grid container>
-                <Grid item xs={1} sm={1}>
-                </ Grid>
-                <Grid item>
+            <Grid 
+              container
+              justifyContent='center'
+            >
+
+                <Grid item xs={12} sm={8}>
                     <Typography variant="h4">
                         {prop.title}
                     </Typography>

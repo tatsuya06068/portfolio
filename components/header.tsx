@@ -85,7 +85,7 @@ const Menu : React.FC  = () => {
       role="presentation"
       onClick={toggleDrawer(false)}
     >
-      <Grid item>
+      <Grid item xs={12} sm={12}>
       <div onClick = {toggleDrawer(false)} className={classes.item}>
         <span>Close</span>
         <br />
@@ -117,15 +117,26 @@ const Menu : React.FC  = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <div onClick={toggleDrawer(true)} className={classes.item}>
-            <span>Menu</span>
-            <br />
-            <ArrowDropDownIcon fontSize="large" />
-          </div> 
+          <Grid item xs={12} sm={12}>
+            <div onClick={toggleDrawer(true)} className={classes.item}>
+              <span>Menu</span>
+              <br />
+              <ArrowDropDownIcon fontSize="large" />
+            </div> 
+          </Grid>
         </Grid>
+        <Grid 
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Grid item xs={12}>
         <Drawer anchor='top' open={state['top']}>
           {list()}
         </Drawer>
+        </Grid>
+       </Grid>
       </ div>
       <Divider />
     </div>
