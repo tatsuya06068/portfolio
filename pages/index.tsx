@@ -92,7 +92,7 @@ function Home({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
 
 
             <Grid item sm={3} xs={7} >
-              <Typography variant="h5" component="div" align='left' >
+              <Typography variant="h5" component="div" align='center' >
                 <span className={classes.text}>{p.name}</span>
               </Typography>
             </Grid>
