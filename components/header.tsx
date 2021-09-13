@@ -18,8 +18,7 @@ const useStyles = makeStyles(() =>
       fontWeight: 'bold',
       '&:hover' :{
         cursor: 'pointer',
-        
-      }
+      },
     },
     menuItem:{
       marginTop: 40,
@@ -30,6 +29,9 @@ const useStyles = makeStyles(() =>
           textDecorationLine:'underline',
           cursor: 'pointer'
         },
+      '&:active':{
+        color: '#DCDCDC'
+      }
     },
     }
     
@@ -59,8 +61,8 @@ const Menu : React.FC  = () => {
   const hrefAssign = (item:string) => {
     
     switch (item) {
-      case 'Skill' :
-        return '/skill'
+      case 'Practice' :
+        return '/practice'
         break;
       case 'Work':
         return '/work'
@@ -93,7 +95,7 @@ const Menu : React.FC  = () => {
       </div>
       </Grid>
       <List >
-        {['Home', 'Skill', 'Work', 'Inquery'].map((text) => (
+        {['Home', 'Practice', 'Work', 'Inquery'].map((text) => (
           <div key={text} className={classes.item + ' ' + classes.menuItem}>
             <Link href={hrefAssign(text)}>
               <span onClick={toggleDrawer(false)}> 

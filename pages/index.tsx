@@ -13,6 +13,9 @@ import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles((theme: Theme) => 
   createStyles({
+    body: {
+      margin: 0,
+    },
     image: {
     width: '8em',
     height: '7em',
@@ -28,7 +31,6 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
       overflow: 'hidden',
       wordBreak: 'break-word',
-      padding: theme.spacing(0, 3),
     },
     text:{
       letterSpacing: theme.spacing(1),
@@ -69,7 +71,6 @@ function Home({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
 
       <main>
         <Menu />
-        
         <Title title="Home" />
         <Grid 
           container
@@ -84,18 +85,16 @@ function Home({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
               direction="row"
               justifyContent="center" 
               alignItems="center"
-              spacing={10}
               >
-            <Grid item sm={1} xs={5} >
-              <img src={p.image.url} className={classes.image} />
-            </Grid>
+              <Grid item sm={1} xs={5} >
+                <img src={p.image.url} className={classes.image} />
+              </Grid>
 
-
-            <Grid item sm={3} xs={7} >
-              <Typography variant="h5" component="div" align='center' >
-                <span className={classes.text}>{p.name}</span>
-              </Typography>
-            </Grid>
+              <Grid item sm={12} xs={12} >
+                <Typography variant="h5" component="div" align='center' >
+                  <span className={classes.text}>{p.name}</span>
+                </Typography>
+              </Grid>
             </Grid>
             
             <Grid container 
@@ -103,7 +102,7 @@ function Home({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
               justifyContent="center" 
               alignItems="center"
               spacing={10}
-              >
+            >
               <Grid item xs={12} sm={6} zeroMinWidth>
                 <Typography>
                   <span className={classes.text}>{p.selfIntroduction}</span>
@@ -125,16 +124,14 @@ function Home({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
                   </a>
                 </Grid> : ''
               }
-             { p.githubURL ?
+              { p.githubURL ?
                 <Grid item>
                   <a href={p.githubURL} target="_blank" rel="noopener noreferrer">
                     <GitHubIcon fontSize='large' color="primary"/>
                   </a>
-                  </Grid> : ''
-                
+                  </Grid> : ''                
               }
             </Grid>
-
           </div>
         ))}
         </Grid>
