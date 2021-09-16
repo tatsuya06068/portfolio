@@ -13,9 +13,6 @@ import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles((theme: Theme) => 
   createStyles({
-    body: {
-      margin: 0,
-    },
     image: {
     width: '8em',
     height: '7em',
@@ -66,7 +63,7 @@ function Home({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
   return(
     <div className={classes.root}>
       <Head>
-        <title>Create Next App</title>
+        <title>Portfolio-Home</title>
       </Head>
 
       <main>
