@@ -17,9 +17,6 @@ const useStyles = makeStyles((theme: Theme) =>
     textField: {
         margin: 'auto',
         maxWidth: theme.spacing(90),
-        '& $span':{
-            color: 'red',
-        }
     },
     Field: {
         margin: theme.spacing(2,0),
@@ -29,6 +26,9 @@ const useStyles = makeStyles((theme: Theme) =>
         margin: 'auto',
         padding: theme.spacing(1,4),
         letterSpacing: theme.spacing(1)
+    },
+    errMsg: {
+        color: 'red',
     }
   })
 )
@@ -118,19 +118,19 @@ const Contact = () => {
             <Title title='Contact' />
 
             <form className={classes.textField}>
-                <span>{EmailError}</span>
+                <span className={classes.errMsg}>{EmailError}</span>
                 <FormControl fullWidth variant="outlined" className={classes.Field}>
                     <InputLabel>メールアドレス</InputLabel>
                     <OutlinedInput id="email" labelWidth={110} onChange={(e) => setEmail(e.target.value)} />
                 </FormControl>
 
-                <span>{SubjectError}</span>
+                <span className={classes.errMsg}>{SubjectError}</span>
                 <FormControl fullWidth variant="outlined" className={classes.Field} >
                     <InputLabel>件名</InputLabel>
                     <OutlinedInput id="subject"labelWidth={30} onChange={(e) => setSubject(e.target.value)} />
                 </FormControl>
 
-                <span>{BodyError}</span>
+                <span className={classes.errMsg}>{BodyError}</span>
                 <FormControl fullWidth variant="outlined" className={classes.Field}>
                     <InputLabel>本文</InputLabel>
                     <OutlinedInput id="body"labelWidth={30} multiline rows={8} onChange={(e) => setBody(e.target.value)} />
