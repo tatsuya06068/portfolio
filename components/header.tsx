@@ -10,16 +10,13 @@ import Divider from '@material-ui/core/Divider'
 
 const useStyles = makeStyles(() => 
   createStyles({
-    fullList: {
-      width: 250
-    },
+    
     item: {
       textAlign: 'center',
       fontWeight: 'bold',
       '&:hover' :{
         cursor: 'pointer',
-        
-      }
+      },
     },
     menuItem:{
       marginTop: 40,
@@ -30,6 +27,9 @@ const useStyles = makeStyles(() =>
           textDecorationLine:'underline',
           cursor: 'pointer'
         },
+      '&:active':{
+        color: '#DCDCDC'
+      }
     },
     }
     
@@ -59,14 +59,14 @@ const Menu : React.FC  = () => {
   const hrefAssign = (item:string) => {
     
     switch (item) {
-      case 'Skill' :
-        return '/skill'
+      case 'Practice' :
+        return '/practice'
         break;
       case 'Work':
         return '/work'
         break;
-      case 'Inquery':
-        return '/inqury'
+      case 'Contact':
+        return '/contact'
         break;
       default:
         return  "/"
@@ -81,9 +81,8 @@ const Menu : React.FC  = () => {
       alignItems="center"
     >
     <div
-      className = {classes.fullList}
+      
       role="presentation"
-      onClick={toggleDrawer(false)}
     >
       <Grid item xs={12} sm={12}>
       <div onClick = {toggleDrawer(false)} className={classes.item}>
@@ -92,10 +91,10 @@ const Menu : React.FC  = () => {
         <ArrowDropUpIcon fontSize="large" />
       </div>
       </Grid>
-      <List >
-        {['Home', 'Skill', 'Work', 'Inquery'].map((text) => (
+      <List>
+        {['Home', 'Practice', 'Work', 'Contact'].map((text) => (
           <div key={text} className={classes.item + ' ' + classes.menuItem}>
-            <Link href={hrefAssign(text)}>
+            <Link href={hrefAssign(text)} >
               <span onClick={toggleDrawer(false)}> 
                 {text}
               </span>
@@ -103,7 +102,6 @@ const Menu : React.FC  = () => {
           </div>
         ))}
       </List>
-
     </div>
     </ Grid>
   );
