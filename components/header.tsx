@@ -67,8 +67,8 @@ const Menu : React.FC  = () => {
       case 'Work':
         return '/work'
         break;
-      case 'Inquery':
-        return '/inqury'
+      case 'Contact':
+        return '/contact'
         break;
       default:
         return  "/"
@@ -95,7 +95,7 @@ const Menu : React.FC  = () => {
       </div>
       </Grid>
       <List >
-        {['Home', 'Practice', 'Work', 'Inquery'].map((text) => (
+        {['Home', 'Practice', 'Work', 'Contact'].map((text) => (
           <div key={text} className={classes.item + ' ' + classes.menuItem}>
             <Link href={hrefAssign(text)}>
               <span onClick={toggleDrawer(false)}> 
