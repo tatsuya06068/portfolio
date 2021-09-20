@@ -110,10 +110,14 @@ function Work({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
                             </Link>
                             </Typography>
                             <Typography className={classes.text}>
-                                {p.description}
+                                {p.description.split('\n').map((str, idx) => (
+                                    <p key={idx}>{str}</p>
+                                ))}
                             </Typography>
-                            <Typography className={classes.text}>
-                                {p.detail}
+                            <Typography component='span' className={classes.text}>
+                                {p.detail.split('\n').map((str, idx) => (
+                                    <p key={idx}>{str}</p>
+                                ))}
                             </Typography>
                             </Collapse>
                         </CardContent>

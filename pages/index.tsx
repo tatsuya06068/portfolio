@@ -80,11 +80,11 @@ function Home({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
           <div key={p.id}>
             <Grid 
               container
-              direction="row"
+              direction="column"
               justifyContent="center" 
               alignItems="center"
               >
-              <Grid item sm={1} xs={5} >
+              <Grid item sm={12} xs={12} >
                 <img src={p.image.url} className={classes.image} />
               </Grid>
 
@@ -98,12 +98,16 @@ function Home({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
             <Grid container 
               direction="row"
               justifyContent="center" 
-              alignItems="center"
-              spacing={10}
+              alignItems="flex-start"
             >
               <Grid item xs={12} sm={6} zeroMinWidth>
                 <Typography>
-                  <span className={classes.text}>{p.selfIntroduction}</span>
+                  <span className={classes.text}>
+                    {p.selfIntroduction.split('\n').map((str, idx) => (
+                      <p key={idx}>{str}</p>
+                    ))}
+                  </span>
+
                 </Typography>
               </Grid>
             </Grid> 
