@@ -103,9 +103,9 @@ function Practice({posts}: InferGetStaticPropsType<typeof getStaticProps>){
                                             align="left"
                                             className={classes.detail}
                                         >
-                                            {p.detail.split(/\n/).map((f, index) => (
-                                                <p key={index} >
-                                                    {f}
+                                            {p.detail.split('\n').map((str, idx) => (
+                                                <p key={idx}>
+                                                    <pre>{str}</pre>
                                                 </p>
                                             ))}
                                         </Typography>

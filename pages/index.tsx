@@ -104,7 +104,7 @@ function Home({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
                 <Typography>
                   <span className={classes.text}>
                     {p.selfIntroduction.split('\n').map((str, idx) => (
-                      <p key={idx}>{str}</p>
+                      <p key={idx}><pre>{str}</pre></p>
                     ))}
                   </span>
 
