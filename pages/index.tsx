@@ -31,7 +31,11 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     text:{
       letterSpacing: theme.spacing(1),
-      lineHeight: theme.spacing(0.3)
+      lineHeight: theme.spacing(0.3),
+      
+      '& $pre' :{
+        whiteSpace: 'pre-wrap'
+      }
     },
     Typography: {
       fontFamily: [
@@ -119,7 +123,7 @@ function Home({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
               alignItems="center"
               spacing={5}
             >
-              { p.twitterURL ?
+              {p.twitterURL ?
                 <Grid item>
                   <a href={p.twitterURL} target="_blank" rel="noopener noreferrer">
                     <TwitterIcon fontSize='large' color="primary"/>

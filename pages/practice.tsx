@@ -30,7 +30,10 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         detail:{
             display: 'inline-block',
-            marginLeft: theme.spacing(5)
+            marginLeft: theme.spacing(5),
+            '& $pre' :{
+                whiteSpace: 'pre-wrap'
+            }
         }
     })
 );
@@ -84,7 +87,7 @@ function Practice({posts}: InferGetStaticPropsType<typeof getStaticProps>){
                     {posts.map((p, idx) => (    
                         <div key={idx} className='item'>
                             <ListItem>
-                                <Grid item sm={4} xs={12}>
+                                <Grid item sm={5} xs={12}>
                                     <Typography
                                         align='center'>
                                     {p.language}

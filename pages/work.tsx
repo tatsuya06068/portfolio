@@ -36,8 +36,10 @@ const useStyles = makeStyles((theme: Theme) =>
         text:{
             letterSpacing: theme.spacing(1),
             lineHeight: theme.spacing(0.3),
-            margin: theme.spacing(2,0)
-
+            margin: theme.spacing(2,0),
+            '& $pre' :{
+                whiteSpace: 'pre-wrap'
+            }
         },
         expand: {
             transform: 'rotate(0deg)',
