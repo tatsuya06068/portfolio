@@ -36,8 +36,10 @@ const useStyles = makeStyles((theme: Theme) =>
         text:{
             letterSpacing: theme.spacing(1),
             lineHeight: theme.spacing(0.3),
-            margin: theme.spacing(2,0)
-
+            margin: theme.spacing(2,0),
+            '& $pre' :{
+                whiteSpace: 'pre-wrap'
+            }
         },
         expand: {
             transform: 'rotate(0deg)',
@@ -74,11 +76,12 @@ export const getStaticProps = async () => {
 
 function Work({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
     const classes = useStyles();
-    const [expanded, setExpanded] = React.useState(false);
+    const [expanded, setExpanded] = React.useState(999);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+   const handleExpandClick = (idx: number) => {
+    setExpanded(idx);
+  }
+  
     return(
         <div className={classes.root}>
             <Head>
@@ -89,8 +92,8 @@ function Work({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
                 <Menu />
                 <Title title="Work" />
                 
-                {posts.map((p) => (
-                    <Card key={p.id} className={classes.card} >
+                {posts.map((p, idx) => (
+                    <Card key={idx} className={classes.card} >
                         <CardMedia
                             className={classes.media}
                             image={p.image.url}
@@ -102,7 +105,7 @@ function Work({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
                                     {p.title}  
                                 </Link>
                             </Typography>
-                            <Collapse in={expanded} timeout="auto" unmountOnExit>
+                            <Collapse in={expanded == idx ? true:false} timeout="auto" unmountOnExit>
                             <Typography align='center' variant='h6' className={classes.sorce} >
                                 <GitHubIcon />
                             <Link href={p.gitURL}>
@@ -110,20 +113,24 @@ function Work({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
                             </Link>
                             </Typography>
                             <Typography className={classes.text}>
-                                {p.description}
+                                {p.description.split('\n').map((str, idx) => (
+                                    <p key={idx}><pre>{str}</pre></p>
+                                ))}
                             </Typography>
-                            <Typography className={classes.text}>
-                                {p.detail}
+                            <Typography component='span' className={classes.text}>
+                                {p.detail.split('\n').map((str, idx) => (
+                                    <p key={idx}><pre>{str}</pre></p>
+                                ))}
                             </Typography>
                             </Collapse>
                         </CardContent>
                         <Typography align='center'>
                             <IconButton 
                                 className={clsx(classes.expand, {
-                                [classes.expandOpen]: expanded,
+                                [classes.expandOpen]: expanded == idx,
                                 })}
-                                onClick={handleExpandClick}
-                                aria-expanded={expanded}
+                                onClick={() => handleExpandClick(idx)}
+                                aria-expanded={expanded==idx?true:false}
                                 aria-label="show more"
                             >
                                 <ExpandMoreIcon />

@@ -9,7 +9,6 @@ const useStyles = makeStyles(() =>
       marginTop: 30,
       marginBottom: 30,
       textDecorationLine:'underline',
-      cursor: 'pointer'    
     },
   }),
 );
