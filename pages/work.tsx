@@ -79,7 +79,7 @@ function Work({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
     const [expanded, setExpanded] = React.useState(999);
 
    const handleExpandClick = (idx: number) => {
-    setExpanded(idx);
+    expanded == idx ? setExpanded(999) : setExpanded(idx);
   }
   
     return(
