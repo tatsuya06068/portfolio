@@ -3,16 +3,16 @@ import Head from 'next/head'
 import Menu from 'components/header'
 import Title from 'components/title'
 import {client} from 'libs/client'
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
+import { createStyles, makeStyles} from '@material-ui/core/styles'
 import {PracticeType} from 'types/practice'
 import { InferGetStaticPropsType } from 'next'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider'
 
-const useStyles = makeStyles((theme: Theme) => 
+const useStyles = makeStyles(() => 
     createStyles({
         root: {
             flexGrow: 1,
@@ -20,8 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
             wordBreak: 'break-word',
         },
         list: {
-            width: '50em',
-
+            width: '45em',
             '& .item':{
                 '&:nth-child(odd)':{
                     background: '#EEEEEE' 
@@ -29,11 +28,13 @@ const useStyles = makeStyles((theme: Theme) =>
             },
         },
         detail:{
-            display: 'inline-block',
-            marginLeft: theme.spacing(5),
             '& $pre' :{
                 whiteSpace: 'pre-wrap'
             }
+        },
+        title:{
+            fontWeight: 'bold',
+            fontSize: '1.1em'
         }
     })
 );
@@ -66,7 +67,7 @@ function Practice({posts}: InferGetStaticPropsType<typeof getStaticProps>){
 
                 <Grid 
                     container
-                    direction="row"
+                    direction="column"
                     justifyContent="center"
                     alignItems="center"
                 >
@@ -79,7 +80,7 @@ function Practice({posts}: InferGetStaticPropsType<typeof getStaticProps>){
 
                 <Grid 
                     container
-                    direction="row"
+                    direction="column"
                     justifyContent="center"
                     alignItems="center"
                 >
@@ -87,7 +88,14 @@ function Practice({posts}: InferGetStaticPropsType<typeof getStaticProps>){
                     {posts.map((p, idx) => (    
                         <div key={idx} className='item'>
                             <ListItem>
-                                <Grid item sm={5} xs={12}>
+                                <Grid item sm={12} xs={6}>
+                                    <Typography align='center' className={classes.title}>
+                                        {p.apptitle}
+                                    </Typography>
+                                </Grid>
+                            </ListItem>
+                            <ListItem>
+                                <Grid item sm={12} xs={6}>
                                     <Typography
                                         align='center'>
                                     {p.language}
@@ -95,25 +103,21 @@ function Practice({posts}: InferGetStaticPropsType<typeof getStaticProps>){
                                     {p.flamework}
                                     </Typography>
                                 </Grid>
-                                
-                                <Grid item sm={8} xs={12}>
-                                <ListItemText
-                                    primary={p.apptitle}    
-                                    secondary={
-                                        <Typography
-                                            component="span"
-                                            variant="body1"
-                                            align="left"
-                                            className={classes.detail}
-                                        >
-                                            {p.detail.split('\n').map((str, idx) => (
-                                                <p key={idx}>
-                                                    <pre>{str}</pre>
-                                                </p>
-                                            ))}
-                                        </Typography>
-                                    }
-                                />
+                            </ListItem>
+                            <ListItem>
+                                <Grid item sm={12} xs={6}>
+                                    <Divider />
+                                    <Typography
+                                        variant="body1"
+                                        align="center"
+                                        className={classes.detail}
+                                    >
+                                        {p.detail.split('\n').map((str, idx) => (
+                                            <p key={idx}>
+                                                <pre>{str}</pre>
+                                            </p>
+                                        ))}
+                                    </Typography>
                                 </Grid>
                             </ListItem>
                        </div>

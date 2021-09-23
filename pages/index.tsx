@@ -104,7 +104,7 @@ function Home({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
               justifyContent="center" 
               alignItems="flex-start"
             >
-              <Grid item xs={12} sm={6} zeroMinWidth>
+              <Grid item xs={10} sm={6} zeroMinWidth>
                 <Typography>
                   <span className={classes.text}>
                     {p.selfIntroduction.split('\n').map((str, idx) => (
