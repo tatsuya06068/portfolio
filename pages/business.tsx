@@ -42,7 +42,7 @@ interface Contents{
 }
 
 export const getStaticProps = async ()=> {
-    const data: Contents = await client.get({ endpoint: "practice"});
+    const data: Contents = await client.get({ endpoint: "business"});
     return{
         props: {
             posts: data.contents,
@@ -62,7 +62,7 @@ function Practice({posts}: InferGetStaticPropsType<typeof getStaticProps>){
             <main>
                 <Menu />
 
-                <Title title="Practice" />
+                <Title title="Business" />
 
                 <Grid 
                     container

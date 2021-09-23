@@ -59,8 +59,8 @@ const Menu : React.FC  = () => {
   const hrefAssign = (item:string) => {
     
     switch (item) {
-      case 'Practice' :
-        return '/practice'
+      case 'Business' :
+        return '/business'
         break;
       case 'Work':
         return '/work'
@@ -92,7 +92,7 @@ const Menu : React.FC  = () => {
       </div>
       </Grid>
       <List>
-        {['Home', 'Practice', 'Work', 'Contact'].map((text) => (
+        {['Home', 'Business', 'Work', 'Contact'].map((text) => (
           <div key={text} className={classes.item + ' ' + classes.menuItem}>
             <Link href={hrefAssign(text)} >
               <span onClick={toggleDrawer(false)}> 
