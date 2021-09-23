@@ -33,8 +33,7 @@ const useStyles = makeStyles(() =>
             }
         },
         title:{
-            fontWeight: 'bold',
-            fontSize: '1.1em'
+            fontWeight: 'bold'
         }
     })
 );
