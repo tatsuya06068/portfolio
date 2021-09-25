@@ -8,8 +8,6 @@ import {PracticeType} from 'types/practice'
 import { InferGetStaticPropsType } from 'next'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider'
 
 const useStyles = makeStyles(() => 
@@ -20,7 +18,8 @@ const useStyles = makeStyles(() =>
             wordBreak: 'break-word',
         },
         list: {
-            width: '45em',
+            width: '100%',
+            maxWidth: '45em',
             '& .item':{
                 '&:nth-child(odd)':{
                     background: '#EEEEEE' 
@@ -28,11 +27,14 @@ const useStyles = makeStyles(() =>
             },
         },
         detail:{
+            paddingBottom: '1em', 
             '& $pre' :{
                 whiteSpace: 'pre-wrap'
             }
         },
         title:{
+            paddingTop: '1em',
+            paddingBottom: '1em',
             fontWeight: 'bold'
         }
     })
@@ -71,7 +73,7 @@ function Practice({posts}: InferGetStaticPropsType<typeof getStaticProps>){
                     alignItems="center"
                 >
                     <Grid item>
-                        <Typography variant='h6'>
+                        <Typography >
                             実務で使用した技術・作成機能
                         </Typography>
                     </Grid>
@@ -83,29 +85,26 @@ function Practice({posts}: InferGetStaticPropsType<typeof getStaticProps>){
                     justifyContent="center"
                     alignItems="center"
                 >
-                <List className={classes.list}>
-                    {posts.map((p, idx) => (    
-                        <div key={idx} className='item'>
-                            <ListItem>
-                                <Grid item sm={12} xs={6}>
-                                    <Typography align='center' className={classes.title}>
+                    <div className={classes.list}>
+                        {posts.map((p, idx) => (    
+                            <div key={idx} className='item'>
+                                <Grid item sm={12} xs={12}>
+                                    <Typography align='center' variant='h6' className={classes.title}>
                                         {p.apptitle}
                                     </Typography>
                                 </Grid>
-                            </ListItem>
-                            <ListItem>
-                                <Grid item sm={12} xs={6}>
+                                <Grid item sm={12} xs={12}>
                                     <Typography
-                                        align='center'>
-                                    {p.language}
-                                    <br />
-                                    {p.flamework}
+                                        align='center'
+                                        variant='body1'    
+                                    >
+                                        {p.language}
+                                        <br />
+                                        {p.flamework.length == 0 ? "" : p.flamework}
                                     </Typography>
                                 </Grid>
-                            </ListItem>
-                            <ListItem>
-                                <Grid item sm={12} xs={6}>
-                                    <Divider />
+                                <Divider />
+                                <Grid item sm={12} xs={12}>
                                     <Typography
                                         variant="body1"
                                         align="center"
@@ -118,12 +117,11 @@ function Practice({posts}: InferGetStaticPropsType<typeof getStaticProps>){
                                         ))}
                                     </Typography>
                                 </Grid>
-                            </ListItem>
-                       </div>
-                    ))}
-                </List>
+                            </div>
+                        ))}
+                    </div>
                 </Grid>
-
+                
             </main>
         </div>
     )
