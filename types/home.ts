@@ -5,7 +5,8 @@ export type HomeType = {
     }
     selfIntroduction: string;
     twitterURL?: string;
-    githubURL?:string;
+    githubURL?: string;
+    blogURL?: string;
 
     name: string;
 

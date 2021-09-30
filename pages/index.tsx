@@ -10,6 +10,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import Grid from '@material-ui/core/Grid'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
+import DescriptionIcon from '@material-ui/icons/Description';
 
 const useStyles = makeStyles((theme: Theme) => 
   createStyles({
@@ -45,6 +46,18 @@ const useStyles = makeStyles((theme: Theme) =>
         'Hiragino Sans',
         'sans-serif',
       ].join(),
+    },
+    github:{
+      color: 'black'
+    },
+    twitter:{
+      color: 'skyblue'
+    },
+    blog:{
+      color: 'dodgerblue'
+    },
+    font:{
+      fontSize: 1
     }
     
   }),
@@ -126,15 +139,25 @@ function Home({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
               {p.twitterURL ?
                 <Grid item>
                   <a href={p.twitterURL} target="_blank" rel="noopener noreferrer">
-                    <TwitterIcon fontSize='large' color="primary"/>
+                    <TwitterIcon fontSize='large' className={classes.twitter} />
                   </a>
+                  <p className={classes.font}>Twitter</p>
                 </Grid> : ''
               }
               { p.githubURL ?
                 <Grid item>
                   <a href={p.githubURL} target="_blank" rel="noopener noreferrer">
-                    <GitHubIcon fontSize='large' color="primary"/>
+                    <GitHubIcon fontSize='large' className={classes.github} />
                   </a>
+                  <p className={classes.font}>Github</p>
+                  </Grid> : ''                
+              }
+              { p.blogURL ?
+                <Grid item>
+                  <a href={p.blogURL} target="_blank" rel="noopener noreferrer">
+                    <DescriptionIcon fontSize="large" className={classes.blog} />
+                  </a>
+                  <p className={classes.font}>&ensp;blog</p>
                   </Grid> : ''                
               }
             </Grid>
