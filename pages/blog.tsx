@@ -20,8 +20,8 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         card: {
             marginBottom: 12,
-            padding: theme.spacing(2),
-            width: theme.spacing(80),
+            padding: theme.spacing(2, 0),
+            maxWidth: theme.spacing(80),
             marginLeft: 'auto',
             marginRight: 'auto'
         },
@@ -35,7 +35,6 @@ const useStyles = makeStyles((theme: Theme) =>
             backgroundColor: '#BBBBBB',
             color: 'white'
         }
-
     })
 )
 
