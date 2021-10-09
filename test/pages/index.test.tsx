@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, fireEvent } from '../testUtils'
-import { Home } from '../../pages/index'
+import { Home } from '../../pages/profile'
 
 describe('Home page', () => {
   it('renders a heading', () => {
