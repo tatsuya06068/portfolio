@@ -105,7 +105,10 @@ function Work({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
                             </Typography>
                             <Typography className={classes.text}>
                                 {p.description.split('\n').map((str, idx) => (
-                                    <p key={idx}><pre>{str}</pre></p>
+                                    str.indexOf('https') >= 0?
+                                        <Link key={idx}>{str}</Link>
+                                    :
+                                         <p key={idx}><pre>{str}</pre></p>
                                 ))}
                             </Typography>
                             <Typography component='span' className={classes.text}>
