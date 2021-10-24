@@ -31,8 +31,8 @@ const useStyles = makeStyles((theme: Theme) =>
       wordBreak: 'break-word',
     },
     text:{
-      letterSpacing: theme.spacing(1),
-      lineHeight: theme.spacing(0.3),
+      letterSpacing: theme.spacing(0.6),
+      lineHeight: theme.spacing(0.2),
       
       '& $pre' :{
         whiteSpace: 'pre-wrap'

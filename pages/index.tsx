@@ -31,8 +31,8 @@ const useStyles = makeStyles((theme: Theme) =>
             marginBottom: theme.spacing(3)
         },
         text:{
-            letterSpacing: theme.spacing(1),
-            lineHeight: theme.spacing(0.3),
+            letterSpacing: theme.spacing(0.6),
+            lineHeight: theme.spacing(0.2),
             margin: theme.spacing(2,0),
             '& $pre' :{
                 whiteSpace: 'pre-wrap'
