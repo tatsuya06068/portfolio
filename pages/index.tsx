@@ -11,7 +11,15 @@ import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from "@material-ui/core/Typography";
-import  GitHubIcon from "@material-ui/icons/GitHub";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import { Swiper, SwiperSlide } from 'swiper/react'
+import SwiperCore, { Navigation, Pagination } from 'swiper'
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
+SwiperCore.use([Navigation, Pagination]);
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -86,11 +94,36 @@ function Work({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
                 
                 {posts.map((p, idx) => (
                     <Card key={idx} className={classes.card} >
-                        <CardMedia
+                        <Swiper
+                            spaceBetween={50}
+                            slidesPerView={1}
+                            navigation
+                            loop={true}
+                            pagination={{ clickable: true }}
+                        >
+                            <SwiperSlide>
+                            <CardMedia
                             className={classes.media}
-                            image={p.image.url}
+                            image={p.image1.url}
                             title="img" 
-                        />
+                            />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                            <CardMedia
+                            className={classes.media}
+                            image={p.image2.url}
+                            title="img" 
+                            />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                            <CardMedia
+                            className={classes.media}
+                            image={p.image3.url}
+                            title="img" 
+                            />
+                            </SwiperSlide>
+                            
+                        </Swiper>
                         <CardContent>
                             <Typography align='center' variant='h4'>
                                 <Link href={p.siteURL}>

@@ -6,7 +6,13 @@ export type WorkType = {
     siteURL: string;
     gitURL: string;
     detail: string;
-    image: {
+    image1: {
+        url: string;
+    }
+    image2: {
+        url: string;
+    }
+    image3: {
         url: string;
     }
 }
