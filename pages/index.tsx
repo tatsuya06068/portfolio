@@ -34,11 +34,12 @@ const useStyles = makeStyles((theme: Theme) =>
             paddingTop: '50%',
         },
         card: {
-            maxWidth: '50em',
+            maxWidth: '70em',
             margin: 'auto',
             marginBottom: theme.spacing(3)
         },
         text:{
+            fontSize: theme.spacing(2.4),
             letterSpacing: theme.spacing(0.6),
             lineHeight: theme.spacing(0.2),
             margin: theme.spacing(2,0),
@@ -126,9 +127,11 @@ function Work({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
                         </Swiper>
                         <CardContent>
                             <Typography align='center' variant='h4'>
-                                <Link href={p.siteURL}>
-                                    {p.title}  
-                                </Link>
+                                {p.siteURL === undefined ? p.title :
+                                    <Link href={p.siteURL}>
+                                        {p.title}  
+                                    </Link>
+                                }
                             </Typography>
                             <Typography align='center' variant='h6' className={classes.sorce} >
                                 <GitHubIcon />
@@ -136,19 +139,98 @@ function Work({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
                                 Sorce
                             </Link>
                             </Typography>
+                            <Typography variant='h5'>
+                                {p.head1}
+                            </Typography>
                             <Typography className={classes.text}>
-                                {p.description.split('\n').map((str, idx) => (
+                                {p.description1.split('\n').map((str, idx) => (
                                     str.indexOf('https') >= 0?
                                         <Link key={idx}>{str}</Link>
                                     :
                                          <p key={idx}><pre>{str}</pre></p>
                                 ))}
                             </Typography>
-                            <Typography component='span' className={classes.text}>
-                                {p.detail.split('\n').map((str, idx) => (
-                                    <p key={idx}><pre>{str}</pre></p>
-                                ))}
-                            </Typography>
+                            {!(p.description2 === undefined) ? 
+                                <div>
+                                    <Typography variant='h5'>
+                                        {p.head2}
+                                    </Typography>
+                                    <Typography className={classes.text}>
+                                        {p.description2.split('\n').map((str, idx) => (
+                                        str.indexOf('https') >= 0?
+                                            <Link key={idx}>{str}</Link>
+                                        :
+                                             <p key={idx}><pre>{str}</pre></p>
+                                        ))}
+                                    </Typography>
+                                </div>
+                            :null
+                            }
+                            {!(p.description3 === undefined) ? 
+                                <div>
+                                    <Typography variant='h5'>
+                                        {p.head3}
+                                    </Typography>
+                                    <Typography className={classes.text}>
+                                        {p.description3.split('\n').map((str, idx) => (
+                                        str.indexOf('https') >= 0?
+                                            <Link key={idx}>{str}</Link>
+                                        :
+                                             <p key={idx}><pre>{str}</pre></p>
+                                        ))}
+                                    </Typography>
+                                </div>
+                            :null
+                            }
+                            {!(p.description4 === undefined) ? 
+
+                                <div>
+                                    <Typography variant='h5'>
+                                        {p.head4}
+                                    </Typography>
+                                    <Typography className={classes.text}>
+                                        {p.description4.split('\n').map((str, idx) => (
+                                        str.indexOf('https') >= 0?
+                                            <a href={str}>ブログ</a>
+                                        :
+                                             <p key={idx}><pre>{str}</pre></p>
+                                        ))}
+                                    </Typography>
+                                </div>
+                            :null
+                            }
+                            {!(p.description5 === undefined) ? 
+                                <div>
+                                    <Typography variant='h5'>
+                                        {p.head2}
+                                    </Typography>
+                                    <Typography className={classes.text}>
+                                        {p.description5.split('\n').map((str, idx) => (
+                                        str.indexOf('https') >= 0?
+                                            <Link key={idx}>{str}</Link>
+                                        :
+                                             <p key={idx}><pre>{str}</pre></p>
+                                        ))}
+                                    </Typography>
+                                </div>
+                            :null
+                            } 
+                            {!(p.description6 === undefined) ? 
+                                <div>
+                                    <Typography variant='h5'>
+                                        {p.head6}
+                                    </Typography>
+                                    <Typography className={classes.text}>
+                                        {p.description6.split('\n').map((str, idx) => (
+                                        str.indexOf('https') >= 0?
+                                            <Link key={idx}>{str}</Link>
+                                        :
+                                             <p key={idx}><pre>{str}</pre></p>
+                                        ))}
+                                    </Typography>
+                                </div>
+                            :null
+                            }
                         </CardContent>
                     </Card>
                 ))}
