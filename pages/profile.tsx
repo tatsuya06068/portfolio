@@ -81,12 +81,12 @@ function Home({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
   return(
     <div className={classes.root}>
       <Head>
-        <title>Portfolio-Home</title>
+        <title>Portfolio-Profile</title>
       </Head>
 
       <main>
         <Menu />
-        <Title title="Home" />
+        <Title title="Profile" />
         <Grid 
           container
           direction="row"
