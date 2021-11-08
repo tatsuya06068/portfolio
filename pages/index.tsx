@@ -36,13 +36,13 @@ const useStyles = makeStyles((theme: Theme) =>
         card: {
             maxWidth: '70em',
             margin: 'auto',
-            marginBottom: theme.spacing(3)
+            marginBottom: theme.spacing(3),
         },
         text:{
             fontSize: theme.spacing(2.4),
             letterSpacing: theme.spacing(0.6),
             lineHeight: theme.spacing(0.2),
-            margin: theme.spacing(2,0),
+            margin: theme.spacing(2,0,2,5),
             '& $pre' :{
                 whiteSpace: 'pre-wrap'
             }
@@ -94,7 +94,7 @@ function Work({posts}: InferGetStaticPropsType<typeof getStaticProps>) {
                 <Title title="Production" />
                 
                 {posts.map((p, idx) => (
-                    <Card key={idx} className={classes.card} >
+                    <Card key={idx} className={classes.card}>
                         <Swiper
                             spaceBetween={50}
                             slidesPerView={1}

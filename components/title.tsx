@@ -23,7 +23,6 @@ const title : React.FC<{title:string}>= (prop) => {
               container
               justifyContent='center'
             >
-
                 <Grid item xs={12} sm={8}>
                     <Typography variant="h4">
                         {prop.title}
